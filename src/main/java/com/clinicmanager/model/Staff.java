@@ -1,4 +1,12 @@
 package com.clinicmanager.model;
 
-public class Staff {
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "staff")
+public class Staff extends User {
+
+    public Staff() {
+    }
 }
