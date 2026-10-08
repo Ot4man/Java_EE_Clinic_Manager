@@ -1,7 +1,6 @@
-package org.example.javaeeclinic;
+package com.clinicmanager;
 
 import java.io.*;
-
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
