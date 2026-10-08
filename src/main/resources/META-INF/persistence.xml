@@ -1,9 +1,68 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd"
+             xsi:schemaLocation="
+                https://jakarta.ee/xml/ns/persistence
+                https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd"
              version="3.2">
-  <persistence-unit name="default">
 
-  </persistence-unit>
+    <persistence-unit name="default" transaction-type="RESOURCE_LOCAL">
+
+        <!-- ========================= -->
+        <!-- JPA ENTITIES -->
+        <!-- ========================= -->
+
+        <class>com.clinicmanager.model.User</class>
+        <class>com.clinicmanager.model.Patient</class>
+        <class>com.clinicmanager.model.Doctor</class>
+        <class>com.clinicmanager.model.Admin</class>
+        <class>com.clinicmanager.model.Staff</class>
+
+        <class>com.clinicmanager.model.Department</class>
+        <class>com.clinicmanager.model.Specialty</class>
+        <class>com.clinicmanager.model.Availability</class>
+        <class>com.clinicmanager.model.Appointment</class>
+        <class>com.clinicmanager.model.MedicalNote</class>
+
+        <!-- ========================= -->
+        <!-- DATABASE CONNECTION -->
+        <!-- ========================= -->
+
+        <properties>
+
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="org.postgresql.Driver"/>
+
+            <property name="jakarta.persistence.jdbc.url"
+                      value="jdbc:postgresql://localhost:5432/clinic_manager"/>
+
+            <property name="jakarta.persistence.jdbc.user"
+                      value="postgres"/>
+
+            <property name="jakarta.persistence.jdbc.password"
+                      value="postgres"/>
+
+
+            <!-- ========================= -->
+            <!-- HIBERNATE -->
+            <!-- ========================= -->
+
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.PostgreSQLDialect"/>
+
+            <!-- Development only -->
+            <property name="hibernate.hbm2ddl.auto"
+                      value="update"/>
+
+            <property name="hibernate.show_sql"
+                      value="true"/>
+
+            <property name="hibernate.format_sql"
+                      value="true"/>
+
+        </properties>
+
+    </persistence-unit>
+
 </persistence>
