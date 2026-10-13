@@ -85,4 +85,16 @@ public class AuthService {
 
         return user;
     }
+    public void changePassword(User user,String oldPassword,String newPassword) {
+    boolean correct = PasswordUtil.checkPassword(oldPassword,user.getPassword());
+    if(!correct) {
+        throw new IllegalArgumentException("password incorrect");
+    }
+    if(newPassword == null || newPassword.length() < 6) {
+        throw new IllegalArgumentException("new password should be 6 characters");
+    }
+    String hashedPassword = PasswordUtil.hashPassword(newPassword);
+    user.setPassword(hashedPassword);
+    userRepository.update(user);
+    }
 }

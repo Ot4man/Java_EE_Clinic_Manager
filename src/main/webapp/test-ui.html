@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClinicManager Test UI</title>
+    <meta name="description" content="Test Dashboard UI for ClinicManager application">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <aside class="sidebar fade-in">
+        <div class="brand">
+            <div class="brand-icon">
+                <i data-lucide="activity"></i>
+            </div>
+            ClinicManager
+        </div>
+
+        <nav>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#" class="active"><i data-lucide="layout-dashboard"></i> Dashboard</a></li>
+                <li class="nav-item"><a href="#"><i data-lucide="users"></i> Patients</a></li>
+                <li class="nav-item"><a href="#"><i data-lucide="calendar"></i> Appointments</a></li>
+                <li class="nav-item"><a href="#"><i data-lucide="test-tubes"></i> Backend Test</a></li>
+                <li class="nav-item" style="margin-top: auto;"><a href="#"><i data-lucide="settings"></i> Settings</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="fade-in delay-1">
+            <h1>Test Environment Dashboard</h1>
+            <div class="user-profile">
+                <div class="text-right">
+                    <div style="font-weight: 600; font-size: 0.9rem;">Dr. Smith</div>
+                    <div style="color: var(--text-muted); font-size: 0.8rem;">Admin</div>
+                </div>
+                <div class="avatar"></div>
+            </div>
+        </header>
+
+        <section class="dashboard-grid fade-in delay-2">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span>Total Patients</span>
+                    <i data-lucide="users" size="18"></i>
+                </div>
+                <div class="stat-value">1,248</div>
+                <div class="stat-trend trend-up">
+                    <i data-lucide="trending-up" size="14"></i> +12% this month
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span>Today's Appointments</span>
+                    <i class="lucide-calendar" data-lucide="calendar" size="18"></i>
+                </div>
+                <div class="stat-value">24</div>
+                <div class="stat-trend trend-up">
+                    <i data-lucide="trending-up" size="14"></i> 4 remaining
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span>Server Status</span>
+                    <i data-lucide="server" size="18"></i>
+                </div>
+                <div class="stat-value" style="color: var(--success)">Online</div>
+                <div class="stat-trend">
+                    <i data-lucide="activity" size="14"></i> All systems nominal
+                </div>
+            </div>
+        </section>
+
+        <section class="test-panel fade-in delay-3">
+            <h2>Backend Integration Test</h2>
+            <p>Use this panel to verify communication with the Java EE servlets. Click the button below to fetch a response from the <code>/hello-servlet</code> endpoint.</p>
+            
+            <button id="testBtn" class="btn">
+                <i data-lucide="zap"></i> Ping Hello Servlet
+            </button>
+
+            <div class="response-area" id="responseArea">
+// Server response will appear here...
+            </div>
+        </section>
+
+        <section class="table-container fade-in delay-3">
+            <h2>Recent Activity</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Time</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alice Johnson</td>
+                        <td>09:00 AM</td>
+                        <td>Checkup</td>
+                        <td><span class="status confirmed">Completed</span></td>
+                    </tr>
+                    <tr>
+                        <td>Bob Smith</td>
+                        <td>10:30 AM</td>
+                        <td>Consultation</td>
+                        <td><span class="status pending">In Progress</span></td>
+                    </tr>
+                    <tr>
+                        <td>Charlie Davis</td>
+                        <td>02:00 PM</td>
+                        <td>Follow-up</td>
+                        <td><span class="status pending">Scheduled</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

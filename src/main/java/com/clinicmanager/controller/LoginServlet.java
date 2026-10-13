@@ -1,6 +1,7 @@
 package com.clinicmanager.controller;
 
 import com.clinicmanager.exception.UserNotFoundException;
+import com.clinicmanager.model.Admin;
 import com.clinicmanager.model.User;
 import com.clinicmanager.service.AuthService;
 
@@ -40,9 +41,18 @@ public class LoginServlet extends HttpServlet {
 
             session.setAttribute("user", user);
 
-            response.sendRedirect(
-                    request.getContextPath() + "/patient/dashboard.jsp"
-            );
+            if (user instanceof Admin) {
+
+                response.sendRedirect(
+                        request.getContextPath() + "/admin/patients"
+                );
+
+            } else {
+
+                response.sendRedirect(
+                        request.getContextPath() + "/patient/dashboard.jsp"
+                );
+            }
 
         } catch (UserNotFoundException e) {
 
